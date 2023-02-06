@@ -3,16 +3,15 @@
 #include "user/user.h"
 
 int
-main(int argc, char *argv[])
+main(int argc, char **argv)
 {
+  int i;
+
   if(argc < 2){
-    fprintf(2, "Usage: Sleep seconds...\n");
+    fprintf(2, "usage: kill pid...\n");
     exit(1);
   }
-
-  int second = atoi(argv[1]);
-
-  sleep(second);
-
+  for(i=1; i<argc; i++)
+    kill(atoi(argv[i]));
   exit(0);
 }
