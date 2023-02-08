@@ -101,3 +101,11 @@ sys_trace(void){
   return 0;
 
 }
+
+uint64
+sys_sysinfo(void){
+  uint64 p;
+  argaddr(0, &p);
+  
+  return systeminfo(p);
+}
